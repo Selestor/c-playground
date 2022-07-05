@@ -10,6 +10,11 @@ int main() {
     removeListNode(head, 5);
     printListFromHead(head);
 
+    addListNode(head, 15);
+    printListFromHead(head);
+    tail = getListTail(head);
+    printListFromTail(tail);
+
     printf("Success!");
     return 0;
 } 

@@ -87,6 +87,15 @@ void removeListNode(struct List *head, int value) {
     }
 }
 
+void addListNode(struct List *head, int newValue) {
+    struct List *newNode = newListNode(newValue);
+    struct List *tail = head->prev;
+    tail->next = newNode;
+    newNode->prev = tail;
+    newNode->next = head;
+    head->prev = newNode;
+}
+
 struct List *getListTail(struct List *head) {
     // Tail for circular list is trivial? 
     return head->prev;
