@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef LIST_HEADER
+#define LIST_HEADER
 
 struct List {
     int val;
