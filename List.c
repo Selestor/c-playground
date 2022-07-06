@@ -1,12 +1,7 @@
+#include "List.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-struct List {
-    int val;
-    struct List *next;
-    struct List *prev;
-};
 
 struct List* newListNode(int i) {
     struct List *node = malloc(sizeof(struct List));
@@ -60,7 +55,7 @@ struct List* newList(int length) {
         
         if (node == NULL) {
             // handle malloc fail, free whatever was allocated up to this point
-            freeList();
+            freeList(head);
             return NULL;
         } 
 
@@ -111,7 +106,7 @@ void addListNode(struct List *head, int newValue) {
     struct List *tail = head->prev;
 
     if (newNode == NULL) {
-        // do whatever, print warning?
+        // handle malloc fail
         return;
     }
 
@@ -133,16 +128,15 @@ struct List* getListTail(struct List *head) {
     */
 }
 
-void freeList(struct List *head)
-{
+void freeList(struct List *head) {
     struct List *tmp;
+
     if (head->prev != NULL) {
         head->prev->next = NULL;
         head->prev = NULL;
     }
 
-    while (head != NULL)
-    {
+    while (head != NULL) {
        tmp = head;
        head = head->next;
        printf("Freeing memory of a node value=%d...", tmp->val);

@@ -1,10 +1,11 @@
-#include "List.c"
+#include "List.h"
 #include <stdio.h>
 
 int main() {
     struct List *head = newList(10);
-    printListFromHead(head);
     struct List *tail = getListTail(head);
+    
+    printListFromHead(head);
     printListFromTail(tail);
 
     removeListNode(head, 5);
@@ -16,6 +17,7 @@ int main() {
     printListFromTail(tail);
 
     freeList(head);
+
     printf("Success!");
     return 0;
 } 
