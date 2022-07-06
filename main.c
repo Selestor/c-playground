@@ -15,6 +15,7 @@ int main() {
     tail = getListTail(head);
     printListFromTail(tail);
 
+    freeList(head);
     printf("Success!");
     return 0;
 } 
